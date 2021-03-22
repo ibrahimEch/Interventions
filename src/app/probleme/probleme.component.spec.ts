@@ -30,4 +30,10 @@ describe('ProblemeComponent', () => {
     zone.setValue('q'.repeat(2));
     expect(zone.invalid).toBeTruthy();
   });
+
+  it('#2 | Zone Prénom valide avec 3 caractères', () => { 
+    let zone = component.problemeForm.controls['Prenom'];
+    zone.setValue('w'.repeat(3));
+    expect(zone.valid).toBeTruthy();
+  });
 });
