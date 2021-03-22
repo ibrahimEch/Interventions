@@ -1,16 +1,33 @@
-
-<div class="container">
-    <br/>
-    <div class="card">
-    <div class="card-header ttext-dark bg-info mb-3">
-    <p>Déclarer un problème</p>
-    </div>
+<br/>
+<div class='container'>
+<div class="card">
+    <h5 class="card-header">Featured</h5>
     <div class="card-body">
-    <h5 class="card-title">Special title treatment</h5>
-    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+      <h5 class="card-title">Special title treatment</h5>
+      <div class="card-text">
+        <form class = "form-horizontal"
+            novalidate
+            (ngSubmit)= "save()"
+            [formGroup]= "problemeForm">
+            <div class="form-group row">
+              <label for="inputEmail3Id" class="col-md-2 col-form-label text-right">Prénom : </label>
+              <div class="col-md-10">
+                <input class="form-control"
+                id="prenomId"
+                type="text"
+                placeholder="Votre prénom ici (obligatoire)"
+                formControlName="Prenom" 
+               [ngClass]="{'is-valid': (problemeForm.get('Prenom').touched ||
+                problemeForm.get('Prenom').dirty) &&
+                (problemeForm.get('Prenom').valid),
+                'is-invalid': (problemeForm.get('Prenom').touched ||
+                problemeForm.get('Prenom').dirty) &&
+                (!problemeForm.get('Prenom').valid )}"/>
+                
+              </div>
+            </div>
+          </form>
+      </div>
     </div>
-    <div class="card-footer">
-        <a href="#" class="btn btn-primary">Sauvegarder</a>
-    </div>
-    </div>
-    </div>
+  </div>
+  </div>
