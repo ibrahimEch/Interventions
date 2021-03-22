@@ -36,4 +36,18 @@ describe('ProblemeComponent', () => {
     zone.setValue('w'.repeat(3));
     expect(zone.valid).toBeTruthy();
   });
+
+  it('#3 | Zone prénom valide avec 200 caractères', () => { 
+    let zone = component.problemeForm.controls['Prenom'];
+    zone.setValue('e'.repeat(200));
+    expect(zone.valid).toBeTruthy();
+
+  });
+
+  it('#4 | Zone Prénom invalide avec aucune valeur', () => { 
+    let zone = component.problemeForm.controls['Prenom'];
+    zone.setValue('r'.repeat(0));
+    expect(zone.invalid).toBeTruthy();
+    
+  });
 });
