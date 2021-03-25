@@ -23,7 +23,20 @@
                 'is-invalid': (problemeForm.get('Prenom').touched ||
                 problemeForm.get('Prenom').dirty) &&
                 (!problemeForm.get('Prenom').valid )}"/>
-                
+              <span class="form-text"  *ngIf= "(problemeForm.get('Prenom').touched ||
+                                problemeForm.get('Prenom').dirty) &&
+                                problemeForm.get('Prenom').errors">
+                <span *ngIf="problemeForm.get('Prenom').errors.CaracInsuffisant">
+                  <small class="text-muted" >
+                     Veuillez entrez plus de caractères.
+                  </small>
+                </span>
+                <span *ngIf="problemeForm.get('Prenom').errors.required">
+                  <small class="text-muted" >
+                     Merci de saisir de votre prénom.
+                  </small>
+                </span>
+              </span>
               </div>
             </div>
           </form>

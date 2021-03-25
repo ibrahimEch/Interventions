@@ -29,6 +29,7 @@ describe('ProblemeComponent', () => {
     let zone = component.problemeForm.controls['Prenom'];
     zone.setValue('q'.repeat(2));
     expect(zone.invalid).toBeTruthy();
+    
   });
 
   it('#2 | Zone Prénom valide avec 3 caractères', () => { 
@@ -51,16 +52,16 @@ describe('ProblemeComponent', () => {
     
   });
     
-  it('#5 | Zone Prénom valide avec 10 espaces', () => {​​​​​​​​
+  it('#5 | Zone Prénom invalide avec 10 espaces', () => {​​​​​​​​
   let zone = component.problemeForm.controls['Prenom'];
   zone.setValue('          ');
-  expect(zone.valid).toBeTruthy();
+  expect(zone.invalid).toBe(true);
   }​​​​​​​​);
 
-  it('#6 | Zone Prénom valide avec 2 espaces et 1 caractère', () => {​​​​​​​​
+  it('#6 | Zone Prénom invalide avec 2 espaces et 1 caractère', () => {​​​​​​​​
     let zone = component.problemeForm.controls['Prenom'];
-    zone.setValue('  t');
-    expect(zone.valid).toBeTruthy();
+    zone.setValue('  '.repeat(2) + 't'.repeat(1));
+    expect(zone.invalid).toBe(true);
     }​​​​​​​​);
 
 });
